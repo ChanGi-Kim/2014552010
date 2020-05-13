@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>계산기</title>
+</head>
+<body>
+display: <input type="text" id="display" value="0">
+<form>
+<table>
+<tr>
+<td>
+<input type="button" id="7" value="7" onClick="butt(7)">
+</td>
+<td>
+<input type="button" id="8" value="8" onClick="butt(8)">
+</td>
+<td>
+<input type="button" id="9" value="9" onClick="butt(7)">
+</td>
+<td>
+<input type="button" id="/" value="/" onClick="butt('/')">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" id="4" value="4" onClick="butt(4)">
+</td>
+<td>
+<input type="button" id="5" value="5" onClick="butt(5)">
+</td>
+<td>
+<input type="button" id="6" value="6" onClick="butt(6)">
+</td>
+<td>
+<input type="button" id="*" value="*" onClick="butt('*')">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" id="1" value="1" onClick="butt(1)">
+</td>
+<td>
+<input type="button" id="2" value="2" onClick="butt(2)">
+</td>
+<td>
+<input type="button" id="3" value="3" onClick="butt(3)">
+</td>
+<td>
+<input type="button" id="-" value="-" onClick="butt('-')">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" id="0" value="0" onClick="butt(0)">
+</td>
+<td>
+<input type="button" id="+" value="+" onClick="butt('+')">
+</td>
+<td>
+<input type="button" id="C" value="C" onClick="buttCle()">
+</td>
+<td>
+<input type="button" id="=" value="=" onClick="buttRes()">
+</td>
+</tr>
+</table>
+</form>
+<script>
+var WData = "";
+var Res = document.getElementById('display');
+function butt(input){
+if(WData == "" && input == 0)
+{return}
+WData += input;
+Res.value = WData;
+}
+function buttRes(){
+try{
+var i = eval(WData);
+Res.value = i;
+WData = i;
+}
+catch(e) {
+alert(e.name + " : " + e.message); //여기서 문제
+}
+
+}
+function buttCle(){
+WData = "";
+Res.value = "0";
+}
+</script>
+</body>
+</html>
